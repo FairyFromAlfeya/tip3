@@ -114,7 +114,7 @@ abstract contract TokenRootBase is ITokenRoot, ICallbackParamsStructure {
 
      * @dev See {ITokenRoot-deployWallet}.
      *
-     * Precondtion:
+     * Precondition:
      *
      *  - `walletOwner` cannot be the zero address.
      *  - `deployWalletValue` must be enough to deploy a new wallet.
@@ -207,7 +207,14 @@ abstract contract TokenRootBase is ITokenRoot, ICallbackParamsStructure {
 
         tvm.rawReserve(address(this).balance - msg.value, 2);
 
-        totalSupply_ -= amount;
+        _acceptBurn(
+            amount,
+            walletOwner,
+            msg.sender,
+            remainingGasTo,
+            callbackTo,
+            payload
+        );
 
         if (callbackTo.value == 0) {
             remainingGasTo.transfer({
@@ -255,9 +262,7 @@ abstract contract TokenRootBase is ITokenRoot, ICallbackParamsStructure {
         address remainingGasTo,
         bool notify,
         TvmCell payload
-    )
-        internal
-    {
+    ) internal virtual {
         TvmCell stateInit = _buildWalletInitData(recipient);
 
         address recipientWallet;
@@ -337,6 +342,17 @@ abstract contract TokenRootBase is ITokenRoot, ICallbackParamsStructure {
             flag: TokenMsgFlag.ALL_NOT_RESERVED + TokenMsgFlag.IGNORE_ERRORS,
             bounce: false
         });
+    }
+
+    function _acceptBurn(
+        uint128 amount,
+        address /*walletOwner*/,
+        address /*wallet*/,
+        address /*remainingGasTo*/,
+        address /*callbackTo*/,
+        TvmCell /*payload*/
+    ) virtual internal {
+        totalSupply_ -= amount;
     }
 
     /**

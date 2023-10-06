@@ -11,6 +11,7 @@ import "./libraries/TokenErrors.tsol";
 import "./libraries/TokenGas.tsol";
 import "./libraries/TokenMsgFlag.tsol";
 import "./interfaces/IVersioned.tsol";
+import "./additional/SID.tsol";
 
 
 /**
@@ -29,7 +30,8 @@ import "./interfaces/IVersioned.tsol";
 contract TokenWallet is
     TokenWalletBurnableBase,
     TokenWalletBurnableByRootBase,
-    TokenWalletDestroyableBase
+    TokenWalletDestroyableBase,
+    SID
 {
 
     /**
@@ -53,7 +55,7 @@ contract TokenWallet is
     }
 
     /**
-     * @dev Implemetation of {SID} interface.
+     * @dev Implementation of {SID} interface.
      */
     function supportsInterface(bytes4 interfaceID) override external view responsible returns (bool) {
         return { value: 0, flag: TokenMsgFlag.REMAINING_GAS, bounce: false } (

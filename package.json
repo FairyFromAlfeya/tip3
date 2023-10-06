@@ -4,7 +4,8 @@
   "description": "Set of ready-to-use tvm token contracts following tip3 standard",
   "main": "index.js",
   "scripts": {
-    "compile": "locklift build --config locklift.config.js",
+    "compile": "locklift build --config locklift.config.ts",
+    "test": "locklift test --network local",
     "prepare-docs": "scripts/helpers/prepare-docs.sh"
   },
   "bugs": {

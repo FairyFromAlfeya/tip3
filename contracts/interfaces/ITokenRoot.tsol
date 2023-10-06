@@ -1,7 +1,6 @@
 pragma ever -solidity ^0.62.0;
 
 import "./TIP3TokenRoot.tsol";
-import "./../additional/SID.tsol";
 
 /**
  * @dev Interface of the minimal required functionality of TIP-3 standard.
@@ -10,7 +9,7 @@ import "./../additional/SID.tsol";
  * This is described in the TIP-6.1 standard.
  * (see https://docs.everscale.network/standard/TIP-6.1)
  */
-interface ITokenRoot is TIP3TokenRoot, SID {
+interface ITokenRoot is TIP3TokenRoot {
 
     /**
      * @dev Returns current owner address of {TokenRoot}.

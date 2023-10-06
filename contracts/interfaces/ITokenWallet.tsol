@@ -1,7 +1,6 @@
 pragma ever -solidity ^0.62.0;
 
 import "./TIP3TokenWallet.tsol";
-import "./../additional/SID.tsol";
 
 /**
  * @title TokenWallet interface.
@@ -12,7 +11,7 @@ import "./../additional/SID.tsol";
  * includes the {SID} interface, which allows other contracts to query if a contract
  * implements a specific interface.
  */
-interface ITokenWallet is TIP3TokenWallet, SID {
+interface ITokenWallet is TIP3TokenWallet {
 
     /**
      * @dev Returns the current owner of the wallet.

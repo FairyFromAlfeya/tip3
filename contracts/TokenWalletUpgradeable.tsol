@@ -13,6 +13,8 @@ import "./interfaces/IVersioned.tsol";
 import "./libraries/TokenErrors.tsol";
 import "./libraries/TokenGas.tsol";
 import "./libraries/TokenMsgFlag.tsol";
+import "./additional/SID.tsol";
+
 import "./TokenWalletPlatform.tsol";
 
 /**
@@ -32,7 +34,8 @@ contract TokenWalletUpgradeable is
     TokenWalletBurnableBase,
     TokenWalletDestroyableBase,
     TokenWalletBurnableByRootBase,
-    ITokenWalletUpgradeable
+    ITokenWalletUpgradeable,
+    SID
 {
 
     uint32 version_;
