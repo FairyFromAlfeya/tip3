@@ -3,11 +3,9 @@ pragma ever-solidity ^0.62.0;
 pragma AbiHeader expire;
 pragma AbiHeader pubkey;
 
-import "../interfaces/ITransferTokenRootOwnershipCallback.tsol";
 import "../interfaces/IAcceptTokensBurnCallback.tsol";
 import "../interfaces/ITokenRoot.tsol";
 import "../interfaces/ITokenWallet.tsol";
-import "../structures/ICallbackParamsStructure.tsol";
 import "../libraries/TokenErrors.tsol";
 import "../libraries/TokenMsgFlag.tsol";
 
@@ -24,7 +22,7 @@ import "../libraries/TokenMsgFlag.tsol";
  *  - {TokenRootDisableableMintBase}
  *  - {TokenRootTransferableOwnershipBase}
  */
-abstract contract TokenRootBase is ITokenRoot, ICallbackParamsStructure {
+abstract contract TokenRootBase is ITokenRoot {
 
     string static name_;
     string static symbol_;

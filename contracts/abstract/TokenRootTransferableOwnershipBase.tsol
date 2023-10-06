@@ -5,6 +5,7 @@ pragma AbiHeader pubkey;
 
 import "./TokenRootBase.tsol";
 import "../interfaces/ITransferableOwnership.tsol";
+import "../interfaces/ITransferTokenRootOwnershipCallback.tsol";
 
 /**
  * @dev Implementation of the {ITransferableOwnership} interface.
