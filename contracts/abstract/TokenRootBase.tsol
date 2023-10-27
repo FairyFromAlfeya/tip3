@@ -38,7 +38,10 @@ abstract contract TokenRootBase is ITokenRoot {
      * @dev Default entrypoint if no other entry point fits.
      */
     fallback() external {
+        _fallback();
     }
+
+    function _fallback() internal virtual {}
 
     /**
      * @dev Modifier than throws if called by any account other than the `rootOwner_`.
